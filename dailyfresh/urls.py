@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^user/', include('user.urls',namespace='user')),#用户模块
     url(r'^cart/', include('cart.urls',namespace='cart')),#购物车模块
     url(r'^order/', include('order.urls',namespace='order')),#订单模块
-    url(r'^', include('goods.urls',namespace='good')),#商品模块
+    url(r'^', include('goods.urls',namespace='goods')),#商品模块
 ]

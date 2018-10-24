@@ -16,7 +16,7 @@ import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-sys.path.insert(0,os.path.join(BASE_DIR,'apps')) #把apps的路径设置好
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))  # 把apps的路径设置好
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -29,7 +29,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -39,11 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tinymce',#富文本编辑器
-    'cart',#购物车模块
-    'user',#用户模块
-    'goods',#商品模块
-    'order',#订单模块
+    'tinymce',  # 富文本编辑器
+    'cart',  # 购物车模块
+    'user',  # 用户模块
+    'goods',  # 商品模块
+    'order',  # 订单模块
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,7 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dailyfresh.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -93,12 +91,11 @@ DATABASES = {
     }
 }
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'zh-hans' #使用中国语言
-TIME_ZONE = 'Asia/Shanghai' #使用中国上海时间
+LANGUAGE_CODE = 'zh-hans'  # 使用中国语言
+TIME_ZONE = 'Asia/Shanghai'  # 使用中国上海时间
 
 USE_I18N = True
 
@@ -106,17 +103,28 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-TINYMCE_DEFAULT_CONFIG={
-    'theme':'advanced',
-    'width':600,
-    'height':400,
+# 富文本编辑器的配置
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced',
+    'width': 600,
+    'height': 400,
 }
-#django认证系统使用的模型类
-AUTH_USER_MODEL='user.User'
+# django认证系统使用的模型类
+AUTH_USER_MODEL = 'user.User'
+
+#发邮件的邮箱设置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+#发送邮件的邮箱
+EMAIL_HOST_USER = 'm15522023821@163.com'
+#在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = '111111zaq'
+#收件人看到的发件人
+EMAIL_FROM = '天天生鲜<m15522023821@163.com>'
